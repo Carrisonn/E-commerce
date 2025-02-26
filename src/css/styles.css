@@ -1,0 +1,134 @@
+/** Global styles */
+:root {
+    --color-primary: #1a1a1a;
+    --color-secondary: #703bf7;
+    --color-tertiary: #141414;
+
+    --color-white: #ffffff;
+
+    --color-border: #262626;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--color-primary);
+    min-height: 100dvh;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    height: 15rem;
+    background-color: var(--color-tertiary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.container {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+/** Navbar **/
+.container-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.logo {
+    font-size: 3.5rem;
+    color: var(--color-white);
+    font-weight: 900;
+}
+
+.div-nav-links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.nav-link {
+    color: var(--color-white);
+    font-size: 1.8rem;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/** Main **/
+.container-section-1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--color-white);
+}
+
+.title {
+    font-size: 4rem;
+    margin: 2rem 0;
+}
+
+.description {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+}
+
+.div-links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.link-start-shopping {
+    color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-secondary);
+    width: 15rem;
+}
+
+.link-start-shopping:hover {
+    background-color: #7f4dfd;
+}
+
+.link-learn-more {
+    color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #646464;
+    width: 15rem;
+}
+
+.link-learn-more:hover {
+    background-color: #7c7c7c;
+}
