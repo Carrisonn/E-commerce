@@ -7,6 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html">
   <meta name="description" content="E-commerce web site">
   <link rel="icon" href="src/icons/icon-website.svg" type="image/svg+xml">
+  <link rel="prefetch" href="src/sections/products.html" as="document">
   <title>E-commerce | Carrison</title>
   <link rel="preload" href="src/css/normalize.css" as="style">
   <link rel="stylesheet" href="src/css/normalize.css">
@@ -17,7 +18,7 @@
 <body>
   <nav>
     <div class="container container-nav">
-      <a href="index.html" class="logo">JSVanila Shop</a>
+      <a href="index.html" class="logo" title="Home Page of JSVanila Shop">JSVanila Shop</a>
       <div class="div-nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="src/sections/products.html" class="nav-link">Products</a>
@@ -40,11 +41,51 @@
         </div>
       </div>
     </section>
+
+    <section class="section-2">
+      <div class="container container-section-2">
+        <h2 class="title">How <span class="color-secondary">simple</span> works</h2>
+        <div class="card-container">
+
+          <div class="card">
+            <div class="card-icon"><img src="src/icons/" alt="Initial Contact Icon" width="64px" height="64px"
+                title="Initial Contact Icon">
+            </div>
+            <h3 class="title-card">Initial Contact</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+          <div class="card">
+            <div class="card-icon"><img src="src/icons/" alt="Discover Sesion Icon" title="Discover Sesion Icon">
+            </div>
+            <h3 class="title-card">Discovery Session</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+          <div class="card">
+            <div class="card-icon"></div>
+            <h3 class="title-card">Contracting</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+          <div class="card">
+            <div class="card-icon"></div>
+            <h3 class="title-card">Fast Prototyping</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+          <div class="card">
+            <div class="card-icon"></div>
+            <h3 class="title-card">Design Phase</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+          <div class="card">
+            <div class="card-icon"></div>
+            <h3 class="title-card">Develop & Listing for sale</h3>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- card -->
+        </div> <!-- card-container -->
+      </div> <!-- container-section-2 -->
+    </section>
   </main>
 
-  <footer>
-
-  </footer>
+  <footer></footer>
   <script type="module" src="/src/js/main.js"></script>
 </body>
 
