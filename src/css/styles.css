@@ -144,8 +144,6 @@ nav {
 }
 
 .card-container {
-    width: 90%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -201,6 +199,29 @@ nav {
     padding: 1rem;
     background-color: var(--color-primary);
     font-weight: 700;
+}
+
+.company-link:hover {
+    text-decoration: underline;
+}
+
+.div-testimonial {
+    border: 1px solid var(--color-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    background-color: var(--color-tertiary);
+    position: relative;
+}
+
+.quotes-icon {
+    position: absolute;
+    left: 7rem;
+    top: 1rem;
+}
+
+blockquote {
+    margin: 0 2rem;
 }
 
 
