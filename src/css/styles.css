@@ -32,6 +32,12 @@ a {
     text-decoration: none;
 }
 
+p {
+    color: var(--color-white);
+    font-size: 1.8rem;
+    margin: 0 2.5rem;
+}
+
 nav {
     height: 15rem;
     background-color: var(--color-tertiary);
@@ -224,6 +230,89 @@ blockquote {
     margin: 0 2rem;
 }
 
+.testimonial {
+    margin: 2rem 0;
+}
+
+.div-form {
+    background-color: var(--color-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+
+.form {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.email {
+    padding: 1rem;
+    color: var(--color-white);
+    border: none;
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+.email:focus {
+    outline: none;
+}
+
+.input-submit {
+    padding: 1rem;
+    color: var(--color-white);
+    border: none;
+    background-color: var(--color-secondary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.input-submit:hover {
+    background-color: #7f4dfd;
+}
+
+/** Footer **/
+footer {
+    background-color: var(--color-tertiary);
+    border-top: 1px solid var(--color-border);
+}
+
+.container-footer {
+    padding: 2rem 0;
+}
+
+.div-footer-links-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title-footer {
+    color: var(--color-secondary);
+    margin: 2.5rem 0 0 0;
+}
+
+.footer-link {
+    color: var(--color-white);
+    width: fit-content;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.description-sub {
+    margin: 1rem 0;
+    font-size: 1.6rem;
+}
 
 /** PC Screen **/
 @media screen and (min-width: 768px) {
