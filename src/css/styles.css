@@ -54,7 +54,6 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 1rem;
 }
 
 .logo {
@@ -88,7 +87,6 @@ nav {
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     color: var(--color-white);
 }
 
@@ -99,7 +97,7 @@ nav {
 
 .description {
     font-size: 1.8rem;
-    margin: 2rem 0;
+    margin: 0;
 }
 
 .div-links {
@@ -131,4 +129,101 @@ nav {
 
 .link-learn-more:hover {
     background-color: #7c7c7c;
+}
+
+/** Section 2 **/
+.section-2 {
+    background-color: var(--color-tertiary);
+    border-top: 1px solid var(--color-border);
+    padding-bottom: 2rem;
+}
+
+.container-section-2 {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.card-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 9rem;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+}
+
+/** Section 3 **/
+.section-3 {
+    background-color: var(--color-primary);
+    border-top: 1px solid var(--color-border);
+}
+
+.container-section-3 {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.div-companies-links {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background-color: var(--color-tertiary);
+
+}
+
+.company-link {
+    color: var(--color-white);
+    font-size: 1.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    font-weight: 700;
+}
+
+
+/** PC Screen **/
+@media screen and (min-width: 768px) {
+    nav {
+        height: 10rem;
+    }
+
+    .container-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+        height: 100%;
+    }
+
+    .div-nav-links {
+        width: 30%;
+    }
+
+    .div-links {
+        justify-content: center;
+        gap: 10rem;
+    }
 }
