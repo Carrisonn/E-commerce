@@ -7,6 +7,8 @@
   --color-white: #ffffff;
 
   --color-border: #262626;
+  --color-error: #ff0000;
+  --color-success: #00a500;
 }
 
 html {
@@ -35,7 +37,7 @@ a {
 p {
   color: var(--color-white);
   font-size: 1.8rem;
-  margin: 0 2.5rem;
+
 }
 
 nav {
@@ -51,6 +53,25 @@ nav {
 
 .color-secondary {
   color: var(--color-secondary);
+}
+
+/** Notification Msg **/
+.notification {
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  width: fit-content;
+  margin: 0 auto 2rem auto;
+  font-weight: 700;
+}
+
+.error {
+  background-color: var(--color-error);
+}
+
+.success {
+  background-color: var(--color-success);
 }
 
 /** Navbar **/
@@ -239,6 +260,7 @@ blockquote {
   border: 1px solid var(--color-border);
   border-radius: .5rem;
   margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .form {
