@@ -7,14 +7,86 @@
   <meta http-equiv="Content-Type" content="text/html">
   <link rel="icon" href="../icons/icon-website.svg" type="image/svg+xml">
   <title>E-commerce - Products</title>
-  <link rel="preload" href="src/css/normalize.css" as="style">
-  <link rel="stylesheet" href="src/css/normalize.css">
-  <link rel="preload" href="src/css/styles.css" as="style">
-  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="preload" href="../css/normalize.css" as="style">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="preload" href="../css/styles.css" as="style">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
-  <h1>Products</h1>
+  <nav>
+    <div class="container container-nav">
+      <a href="../../index.html" class="logo" title="Home Page of JSVanila Shop">JSVanila Shop</a>
+      <div class="div-nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="div-input-search">
+        <img src="../icons/search-icon.png" loading="lazy" alt="Search Icon" width="35px" height="35px"
+          title="Search Icon">
+        <input type="text" id="input-search-products" class="input-search-products" placeholder="Search...">
+      </div>
+      <div class="div-btn-search">
+        <button type="submit" class="btn-search-products" id="btn-search-products">Search</button>
+      </div>
+
+      <div class="div-products-container"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container container-footer">
+      <a class="footer-link" href="#">Terms ·</a>
+      <a class="footer-link" href="#">Privacy Policy</a>
+
+      <div class="div-footer-links-container">
+        <div class="div-footer-links">
+          <h3 class="title-footer">Products</h3>
+          <a class="footer-link" href="#">Web Studio</a>
+          <a class="footer-link" href="#">DynamicBox Flex</a>
+          <a class="footer-link" href="#">Programming Forms</a>
+          <a class="footer-link" href="#">Integrations</a>
+          <a class="footer-link" href="#">Command-line</a>
+        </div>
+
+        <div class="div-footer-links">
+          <h3 class="title-footer">Resources</h3>
+          <a class="footer-link" href="#">Documentation</a>
+          <a class="footer-link" href="#">Tutorials & Guides</a>
+          <a class="footer-link" href="#">Blog</a>
+          <a class="footer-link" href="#">Support Center</a>
+          <a class="footer-link" href="#">Partners</a>
+        </div>
+
+        <div class="div-footer-links">
+          <h3 class="title-footer">Partners</h3>
+          <a class="footer-link" href="#">Home</a>
+          <a class="footer-link" href="#">About us</a>
+          <a class="footer-link" href="#">Company values</a>
+          <a class="footer-link" href="#">Pricing</a>
+          <a class="footer-link" href="#">Privacy policy</a>
+        </div>
+
+        <div>
+          <h3 class="title-footer">Subscribe</h3>
+          <p class="description-sub">Get the latest news and articles to your inbox every month.</p>
+        </div>
+      </div> <!-- div-footer-links-container -->
+    </div> <!-- container-footer -->
+
+    <div class="container container-footer-autor">
+      <h3 class="title-autor">Made with ❤️ by <a class="link-autor" href="https://github.com/Carrisonn"
+          target="_blank">Carrison</a>
+      </h3>
+    </div>
+  </footer>
+  <script type="module" src="../js/products/main.js"></script>
 </body>
 
 </html>
