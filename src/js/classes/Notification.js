@@ -1,4 +1,4 @@
-import { divForm } from '../constants.js';
+import { divForm } from '../landing/constants.js';
 
 export class Notification {
   constructor(message, type) {
