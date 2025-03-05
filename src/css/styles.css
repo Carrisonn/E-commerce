@@ -307,12 +307,6 @@ blockquote {
   gap: 2rem;
 }
 
-.div-input-search img {
-  background-color: var(--color-secondary);
-  border-radius: .5rem;
-  padding: .5rem;
-}
-
 .div-input-search {
   display: flex;
   gap: 1rem;
@@ -320,6 +314,12 @@ blockquote {
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   width: 100%;
+}
+
+.div-input-search img {
+  background-color: var(--color-secondary);
+  border-radius: .5rem;
+  padding: .5rem;
 }
 
 .input-search-products {
@@ -360,15 +360,18 @@ blockquote {
   border: 1px solid var(--color-border);
   border-radius: .5rem;
   background-color: var(--color-tertiary);
+  display: grid;
+  align-self: stretch;
 }
 
-.image-product {
+.product-image {
   width: 100%;
   border-radius: .5rem;
 }
 
 .product-title {
   color: var(--color-white);
+  margin-bottom: 0;
 }
 
 .product-category-name {
@@ -476,6 +479,11 @@ footer {
 
 /** PC Screen **/
 @media screen and (min-width: 768px) {
+  .container {
+    width: min(90%, 100rem);
+    margin: 0 auto;
+  }
+
   nav {
     height: 10rem;
   }
@@ -497,9 +505,6 @@ footer {
     gap: 10rem;
   }
 
-  .container {
-    width: min(90%, 90rem);
-  }
 
   .card-container {
     display: grid;
@@ -532,4 +537,67 @@ footer {
     flex-direction: row;
     width: 50%;
   }
+
+  .div-products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/** Spinner **/
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid var(--color-secondary);
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}
+
+.div-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 2rem auto;
+}
+
+.hide-spinner {
+  display: none;
 }
