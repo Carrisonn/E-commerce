@@ -7,17 +7,16 @@ export function valueToEmailObj(event) {
 
 export function submitForm(event) {
   event.preventDefault();
-  const { email } = emailObj;
 
+  const { email } = emailObj;
   if (!validateEmail(email)) {
-    new Notification('Please, enter a valid email address', 'error');
+    new Notification('Please, enter a valid email address', 'error', 'landingForm');
     return;
   }
 
-  new Notification('Thank you for subscribing', 'success');
-  form.reset();
-  inputEmail.value = '';
+  new Notification('Thank you for subscribing', 'success', 'landingForm');
   emailObj.email = '';
+  form.reset();
 }
 
 function validateEmail(email) {
