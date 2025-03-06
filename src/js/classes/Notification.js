@@ -1,9 +1,11 @@
-import { divForm } from '../landing/constants.js';
+import { divFormLanding } from '../landing/constants.js';
+import { divProductsForm } from '../products/constants.js';
 
 export class Notification {
-  constructor(message, type) {
+  constructor(message, typeMsg, srcForm) {
     this.message = message;
-    this.type = type;
+    this.typeMsg = typeMsg;
+    this.srcForm = srcForm;
     this.createNotification();
   }
 
@@ -14,10 +16,10 @@ export class Notification {
     const existNotification = document.querySelector('.notification');
     existNotification ? existNotification.remove() : null;
 
-    this.type === 'error' ? notification.classList.add('error') : notification.classList.add('success');
+    this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
     notification.textContent = this.message;
 
-    divForm.appendChild(notification);
+    this.srcForm === 'landingForm' ? divFormLanding.appendChild(notification) : divProductsForm.appendChild(notification);
     setTimeout(() => notification.remove(), 4000);
   }
 }
