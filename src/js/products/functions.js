@@ -1,4 +1,6 @@
 import { Products } from "../classes/Products.js";
+import { Notification } from "../classes/Notification.js";
+import { userProductObj } from "./constants.js";
 
 const productsInstance = new Products();
 
@@ -13,7 +15,34 @@ export async function getProducts() {
     productsInstance.renderProducts(products);
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al cargar los productos:\n ${error}\n Intentelo de nuevo mas tarde`);
-    window.location.href = '/';
+    alert(`Ha ocurrido un error al cargar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
+    window.location.reload();
   }
 };
+
+export function valueToProductObj(event) {
+  userProductObj.product = event.target.value;
+};
+
+export function validateData(event) {
+  event.preventDefault();
+  const { product } = userProductObj;
+  !product ? new Notification('Please, enter a product name', 'error', 'productsForm') : searchProducts();
+};
+
+async function searchProducts() {
+  const divSpinner = document.querySelector('#div-spinner');
+  divSpinner.classList.remove('hide-spinner');
+
+  try {
+    const { product } = userProductObj;
+    const urlProduct = `https://api.escuelajs.co/api/v1/products/?title=${product}`;
+    const response = await fetch(urlProduct);
+    const userProduct = await response.json();
+    productsInstance.renderProducts(userProduct);
+  } catch (error) {
+    console.error(error);
+    alert(`Ha ocurrido un error al buscar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
+    window.location.reload();
+  }
+}
