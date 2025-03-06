@@ -1,3 +1,6 @@
+import { Notification } from './Notification.js';
+import { divProductsContainer } from '../products/constants.js';
+
 export class Products {
   constructor() {
     this.products = [];
@@ -7,8 +10,13 @@ export class Products {
     const removeSpinner = document.querySelector('#div-spinner');
     removeSpinner.classList.add('hide-spinner');
 
+    products.length === 0 ? new Notification('No products found', 'error', 'productsForm') : null;
+
+    while (divProductsContainer.firstChild) {
+      divProductsContainer.removeChild(divProductsContainer.firstChild);
+    }
+
     products.forEach(product => {
-      const divProductsContainer = document.querySelector('#div-products-container');
       const { id, title, price, category: { name }, images: [image] } = product;
 
       const divProduct = document.createElement('div');
@@ -21,11 +29,12 @@ export class Products {
         <p class="product-category-name">${name}</p>
         <div class="div-product-buy">
           <p class="price">Price: <span class="price-span">$${price}</span></p>
-          <button class="btn-product-add-to-cart">Add To Cart</button>
+          <button class="btn-product-add-to-cart" data-id="${id}">Add To Cart</button>
         </div>
       `;
 
-      divProductsContainer.appendChild(divProduct)
+      const divProductsContainer = document.querySelector('#div-products-container');
+      divProductsContainer.appendChild(divProduct);
     })
   }
-}
+};
