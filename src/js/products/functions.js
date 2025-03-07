@@ -12,7 +12,7 @@ export async function getProducts() {
     const urlProducts = 'https://api.escuelajs.co/api/v1/products?offset=0&limit=20';
     const response = await fetch(urlProducts);
     const products = await response.json();
-    productsInstance.renderProducts(products);
+    productsInstance.renderAllProducts(products);
   } catch (error) {
     console.error(error);
     alert(`Ha ocurrido un error al cargar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
@@ -39,10 +39,10 @@ async function searchProducts() {
     const urlProduct = `https://api.escuelajs.co/api/v1/products/?title=${product}`;
     const response = await fetch(urlProduct);
     const userProduct = await response.json();
-    productsInstance.renderProducts(userProduct);
+    productsInstance.renderAllProducts(userProduct);
   } catch (error) {
     console.error(error);
     alert(`Ha ocurrido un error al buscar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
     window.location.reload();
   }
-}
+};
