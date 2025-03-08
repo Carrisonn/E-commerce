@@ -11,7 +11,11 @@ export class Products {
     const removeSpinner = document.querySelector('#div-spinner');
     removeSpinner.classList.add('hide-spinner');
 
-    products.length === 0 ? new Notification('No products found', 'error', 'productsForm') : null;
+    if (products.length === 0) {
+      userProductObj.product = '';
+      formProducts.reset();
+      return new Notification('No products found', 'error', 'productsForm');
+    }
 
     while (divProductsContainer.firstChild) {
       divProductsContainer.removeChild(divProductsContainer.firstChild);
@@ -24,7 +28,7 @@ export class Products {
       divProduct.classList.add('product-card');
       divProduct.innerHTML = `
         <a href="product.html?id=${id}"> 
-          <img loading="lazy" src="${image}" class="product-image" alt="Product Image">
+          <img loading="lazy" src="${image}" class="product-image" title="${title}" alt="${title}">
         </a>
         <h3 class="product-title">${title}</h3>
         <p class="product-category-name">${name}</p>
@@ -35,8 +39,6 @@ export class Products {
       `;
       divProductsContainer.appendChild(divProduct);
     })
-    userProductObj.product = '';
-    formProducts.reset();
   };
 
   renderSingleProduct(product) {
@@ -48,11 +50,11 @@ export class Products {
     divProductCard.classList.add('single-product-card');
     divProductCard.innerHTML = `
       <div class="div-images-container"> 
-      <div class="div-small-images">
-        <img loading="lazy" src="${image2}" class="product-image" alt="Product Image">
-        <img loading="lazy" src="${image3}" class="product-image" alt="Product Image">
-      </div>
-      <img loading="lazy" src="${image1}" class="product-image" alt="Product Image">
+        <div class="div-small-images">
+          <img loading="lazy" src="${image2}" class="product-image" title="${title}" alt="${title}">
+          <img loading="lazy" src="${image3}" class="product-image" title="${title}" alt="${title}">
+        </div>
+        <img loading="lazy" src="${image1}" class="product-image" title="${title}" alt="${title}">
       </div>
       <div class="div-product-info">
         <h3 class="product-title">${title}</h3>
