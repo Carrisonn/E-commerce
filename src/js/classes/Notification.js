@@ -14,7 +14,7 @@ export class Notification {
     notification.classList.add('notification');
 
     const existNotification = document.querySelector('.notification');
-    existNotification ? existNotification.remove() : null;
+    existNotification?.remove();
 
     this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
     notification.textContent = this.message;
