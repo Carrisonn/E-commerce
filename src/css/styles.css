@@ -29,6 +29,8 @@ body {
   font-size: 1.6rem;
   background-color: var(--color-primary);
   min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 a {
@@ -77,6 +79,8 @@ nav {
 .success {
   background-color: var(--color-success);
 }
+
+/** Landing **/
 
 /** Navbar **/
 .container-nav {
@@ -370,7 +374,9 @@ blockquote {
 
 .product-image {
   width: 100%;
+  height: 100%;
   border-radius: .5rem;
+
 }
 
 .product-title {
@@ -417,6 +423,42 @@ blockquote {
 
 .btn-product-add-to-cart:hover {
   background-color: var(--color-btnHover);
+}
+
+
+/** Product.html **/
+.main-container {
+  margin: 2rem auto;
+}
+
+.single-product-card {
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: .5rem;
+  background-color: var(--color-tertiary);
+}
+
+.div-images-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+}
+
+.div-small-images {
+  display: flex;
+  gap: 2rem;
+}
+
+.div-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-description {
+  color: var(--color-white);
+  font-size: 1.6rem;
+  line-height: 1.5;
 }
 
 
@@ -483,6 +525,8 @@ footer {
 
 /** PC Screen **/
 @media screen and (min-width: 768px) {
+
+  /** Landing **/
   .container {
     width: min(90%, 100rem);
     margin: 0 auto;
@@ -536,7 +580,7 @@ footer {
     gap: 5rem;
   }
 
-  /** Products **/
+  /** Products.html **/
   .form-products {
     flex-direction: row;
     width: 50%;
@@ -545,6 +589,33 @@ footer {
   .div-products-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /** Product.html **/
+  .main-container {
+    margin: 0 auto;
+    display: grid;
+    place-content: center;
+  }
+
+  .single-product-card {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: .5rem;
+    background-color: var(--color-tertiary);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .div-images-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .div-small-images {
+    display: flex;
+    flex-direction: column;
   }
 }
 
