@@ -1,5 +1,3 @@
 import { validateQueryParams } from "./functions.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  validateQueryParams();
-});
+document.addEventListener('DOMContentLoaded', () => validateQueryParams());
