@@ -13,6 +13,7 @@ export async function getProducts() {
     const response = await fetch(urlProducts);
     const products = await response.json();
     productsInstance.renderAllProducts(products);
+    eventToBtnAddToCart();
   } catch (error) {
     console.error(error);
     alert(`Ha ocurrido un error al cargar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
@@ -46,3 +47,22 @@ async function searchProducts() {
     window.location.reload();
   }
 };
+
+function eventToBtnAddToCart() {
+  const btnsAddToCart = document.querySelectorAll('.btn-product-add-to-cart');
+  btnsAddToCart.forEach(btnAddToCart => btnAddToCart.addEventListener('click', selectCardInformation));
+}
+
+export function selectCardInformation(event) {
+  const productCard = event.target.parentElement.parentElement
+
+  const productAddedToCartObj = {
+    id: productCard.querySelector('.btn-product-add-to-cart').dataset.id,
+    title: productCard.querySelector('.product-title').textContent,
+    price: productCard.querySelector('.price-span').textContent,
+    image: productCard.querySelector('.product-image').src,
+    quantity: 1
+  };
+
+  productsInstance.userAddedProduct(productAddedToCartObj);
+}
