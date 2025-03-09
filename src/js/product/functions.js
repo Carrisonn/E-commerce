@@ -17,10 +17,7 @@ async function getProduct() {
   try {
     const productUrl = `https://api.escuelajs.co/api/v1/products/${productId}`;
     const response = await fetch(productUrl);
-    if (!response.ok) {
-      alert(`Producto no encontrado por el siguiente motivo:\n ${response.statusText}.`);
-      return window.location.href = '/';
-    }
+    if (!response.ok) return window.location.href = '/';
     const product = await response.json();
     productInstance.renderSingleProduct(product);
   } catch (error) {
