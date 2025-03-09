@@ -14,7 +14,7 @@ export class Products {
     if (products.length === 0) {
       userProductObj.product = '';
       formProducts.reset();
-      return new Notification('No products found', 'error', 'productsForm');
+      return new Notification('No products found with this name', 'error', 'productsForm');
     }
 
     while (divProductsContainer.firstChild) {
@@ -32,24 +32,26 @@ export class Products {
         </a>
         <h3 class="product-title">${title}</h3>
         <p class="product-category-name">${name}</p>
-        <div class="div-product-buy">
+        <div class="div-product-price-goback">
           <p class="price">Price: <span class="price-span">$${price}</span></p>
-          <button class="btn-product-add-to-cart" data-id="${id}">Add To Cart</button>
-        </div>
+          <button class="btn-product-add-to-cart" data-id="${id}"> Add To Cart</button>             
+        </div >
       `;
       divProductsContainer.appendChild(divProduct);
     })
+    userProductObj.product = '';
+    formProducts.reset();
   };
 
   renderSingleProduct(product) {
     const removeSpinner = document.querySelector('#div-spinner');
     removeSpinner.classList.add('hide-spinner');
 
-    const { id, title, price, description, category: { name }, images: [image1, image2, image3] } = product;
+    const { title, price, description, category: { name }, images: [image1, image2, image3] } = product;
     const divProductCard = document.createElement('div');
     divProductCard.classList.add('single-product-card');
     divProductCard.innerHTML = `
-      <div class="div-images-container"> 
+      <div class="div-images-container">
         <div class="div-small-images">
           <img loading="lazy" src="${image2}" class="product-image" title="${title}" alt="${title}">
           <img loading="lazy" src="${image3}" class="product-image" title="${title}" alt="${title}">
@@ -60,12 +62,17 @@ export class Products {
         <h3 class="product-title">${title}</h3>
         <p class="product-category-name">${name}</p>
         <p class="product-description">${description}</p>
-        <div class="div-product-buy">
+        <div class="div-product-price-goback">
           <p class="price">Price: <span class="price-span">$${price}</span></p>
-          <button class="btn-product-add-to-cart" data-id="${id}">Add To Cart</button>
+          <a href="products.html" class="btn-product-goback">Go Back</a>
         </div>
       </div>
     `;
     divProductContainer.appendChild(divProductCard);
+  }
+
+  userAddedProduct(productAddedToCartObj) {
+    this.products = [...this.products, productAddedToCartObj];
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 };
