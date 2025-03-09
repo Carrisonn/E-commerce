@@ -16,9 +16,8 @@ export class Notification {
     const existNotification = document.querySelector('.notification');
     existNotification?.remove();
 
-    this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
     notification.textContent = this.message;
-
+    this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
     this.srcForm === 'landingForm' ? divFormLanding.appendChild(notification) : divProductsForm.appendChild(notification);
     setTimeout(() => notification.remove(), 4000);
   }
