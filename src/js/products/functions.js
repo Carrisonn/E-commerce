@@ -16,13 +16,13 @@ export async function getProducts() {
     eventToBtnAddToCart();
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al cargar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
-    window.location.reload();
+    alert(`Ha ocurrido un error al cargar los productos:\n ${error}.`);
+    window.location.href = '/';
   }
 };
 
 export function valueToProductObj(event) {
-  userProductObj.product = event.target.value;
+  userProductObj.product = event.target.value.trim();
 };
 
 export function validateData(event) {
@@ -43,19 +43,18 @@ async function searchProducts() {
     productsInstance.renderAllProducts(userProduct);
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al buscar los productos:\n ${error}.\n Pulse aceptar para volver a intentarlo`);
-    window.location.reload();
+    alert(`Ha ocurrido un error al buscar los productos:\n ${error}.`);
+    window.location.href = '/';
   }
 };
 
 function eventToBtnAddToCart() {
   const btnsAddToCart = document.querySelectorAll('.btn-product-add-to-cart');
   btnsAddToCart.forEach(btnAddToCart => btnAddToCart.addEventListener('click', selectCardInformation));
-}
+};
 
-export function selectCardInformation(event) {
-  const productCard = event.target.parentElement.parentElement
-
+function selectCardInformation(event) {
+  const productCard = event.target.parentElement.parentElement;
   const productAddedToCartObj = {
     id: productCard.querySelector('.btn-product-add-to-cart').dataset.id,
     title: productCard.querySelector('.product-title').textContent,
@@ -63,6 +62,5 @@ export function selectCardInformation(event) {
     image: productCard.querySelector('.product-image').src,
     quantity: 1
   };
-
-  productsInstance.userAddedProduct(productAddedToCartObj);
-}
+  productsInstance.userProductAddedToCart(productAddedToCartObj);
+};
