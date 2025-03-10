@@ -2,10 +2,10 @@ import { divFormLanding } from '../landing/constants.js';
 import { divProductsForm } from '../products/constants.js';
 
 export class Notification {
-  constructor(message, typeMsg, srcForm) {
+  constructor(message, typeMsg, reference) {
     this.message = message;
     this.typeMsg = typeMsg;
-    this.srcForm = srcForm;
+    this.reference = reference;
     this.createNotification();
   }
 
@@ -18,7 +18,7 @@ export class Notification {
 
     notification.textContent = this.message;
     this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
-    this.srcForm === 'landingForm' ? divFormLanding.appendChild(notification) : divProductsForm.appendChild(notification);
+    this.reference === 'landingForm' ? divFormLanding.appendChild(notification) : divProductsForm.appendChild(notification);
     setTimeout(() => notification.remove(), 4000);
   }
-}
+};
