@@ -69,10 +69,10 @@ export class Products {
       </div>
     `;
     divProductContainer.appendChild(divProductCard);
-  }
+  };
 
-  userAddedProduct(productAddedToCartObj) {
+  userProductAddedToCart(productAddedToCartObj) {
     this.products = [...this.products, productAddedToCartObj];
-    localStorage.setItem('products', JSON.stringify(this.products));
-  }
+    localStorage.setItem('userProducts', JSON.stringify(this.products));
+  };
 };
