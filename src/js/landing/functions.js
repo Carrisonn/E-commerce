@@ -1,18 +1,15 @@
 import { Notification } from '../classes/Notification.js';
-import { emailObj, form, inputEmail } from './constants.js';
+import { emailObj, form } from './constants.js';
 
 export function valueToEmailObj(event) {
-  emailObj.email = event.target.value;
+  emailObj.email = event.target.value.trim();
 };
 
 export function submitForm(event) {
   event.preventDefault();
 
   const { email } = emailObj;
-  if (!validateEmail(email)) {
-    new Notification('Please, enter a valid email address', 'error', 'landingForm');
-    return;
-  }
+  if (!validateEmail(email)) return new Notification('Please, enter a valid email address', 'error', 'landingForm');
 
   new Notification('Thank you for subscribing', 'success', 'landingForm');
   emailObj.email = '';
