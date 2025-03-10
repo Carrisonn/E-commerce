@@ -80,7 +80,7 @@ nav {
   background-color: var(--color-success);
 }
 
-/** Landing **/
+/** Layout **/
 
 /** Navbar **/
 .container-nav {
@@ -146,7 +146,7 @@ nav {
 .div-links {
   margin: 3rem 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -544,6 +544,8 @@ footer {
 @media screen and (min-width: 768px) {
 
   /** Landing **/
+
+  /** Layout **/
   .container {
     width: min(90%, 100rem);
     margin: 0 auto;
@@ -565,11 +567,18 @@ footer {
     width: 35%;
   }
 
+  /** Section 1 **/
+  .div-links {
+    justify-content: space-evenly;
+  }
+
+  /** Section 2 **/
   .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
+  /** Section 3 **/
   .div-companies-links {
     width: calc(100% - 30rem);
     margin: 2rem auto 0 auto;
@@ -585,6 +594,7 @@ footer {
     margin: 0 auto 3rem auto;
   }
 
+  /** Footer **/
   .div-footer-links-container {
     display: flex;
     flex-direction: row;
@@ -603,12 +613,6 @@ footer {
   }
 
   /** Product.html **/
-  .main-container {
-    margin: 0 auto;
-    display: grid;
-    place-content: center;
-  }
-
   .single-product-card {
     padding: 2rem;
     border: 1px solid var(--color-border);
