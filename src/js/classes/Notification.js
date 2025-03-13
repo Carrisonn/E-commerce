@@ -1,4 +1,4 @@
-import { divFormLanding } from '../landing/constants.js';
+import { divFormLanding } from '../layout/constants.js';
 import { divProductsForm } from '../products/constants.js';
 
 export class Notification {
@@ -18,7 +18,17 @@ export class Notification {
 
     notification.textContent = this.message;
     this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
-    this.reference === 'landingForm' ? divFormLanding.appendChild(notification) : divProductsForm.appendChild(notification);
-    setTimeout(() => notification.remove(), 4000);
+    switch (this.reference) {
+      case 'landingForm':
+        divFormLanding.appendChild(notification)
+        break;
+      case 'productsForm':
+        divProductsForm.appendChild(notification)
+        break;
+      default:
+        this.reference.appendChild(notification);
+        break;
+    }
+    setTimeout(() => notification.remove(), 3000);
   }
 };
