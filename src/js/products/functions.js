@@ -1,6 +1,6 @@
 import { Products } from "../classes/Products.js";
 import { Notification } from "../classes/Notification.js";
-import { userProductObj } from "./constants.js";
+import { userProductObj, divProductsContainer } from "./constants.js";
 
 const productsInstance = new Products();
 
@@ -13,10 +13,10 @@ export async function getProducts() {
     const response = await fetch(urlProducts);
     const products = await response.json();
     productsInstance.renderAllProducts(products);
-    eventToBtnAddToCart();
+    selectCardInformation();
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al cargar los productos:\n ${error}.`);
+    alert(`There was an error loading the products:\n ${error}.`);
     window.location.href = '/';
   }
 };
@@ -41,26 +41,28 @@ async function searchProducts() {
     const response = await fetch(urlProduct);
     const userProduct = await response.json();
     productsInstance.renderAllProducts(userProduct);
+    selectCardInformation();
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al buscar los productos:\n ${error}.`);
+    alert(`There was an error searching for the products:\n ${error}.`);
     window.location.href = '/';
   }
 };
 
-function eventToBtnAddToCart() {
-  const btnsAddToCart = document.querySelectorAll('.btn-product-add-to-cart');
-  btnsAddToCart.forEach(btnAddToCart => btnAddToCart.addEventListener('click', selectCardInformation));
-};
+function selectCardInformation() {
+  divProductsContainer.addEventListener('click', event => {
+    if (event.target.classList.contains('btn-product-add-to-cart')) {
+      const productCard = event.target.parentElement.parentElement;
 
-function selectCardInformation(event) {
-  const productCard = event.target.parentElement.parentElement;
-  const productAddedToCartObj = {
-    id: productCard.querySelector('.btn-product-add-to-cart').dataset.id,
-    title: productCard.querySelector('.product-title').textContent,
-    price: productCard.querySelector('.price-span').textContent,
-    image: productCard.querySelector('.product-image').src,
-    quantity: 1
-  };
-  productsInstance.userProductAddedToCart(productAddedToCartObj);
+      const productAddedToCartObj = {
+        id: productCard.querySelector('.btn-product-add-to-cart').dataset.id,
+        title: productCard.querySelector('.product-title').textContent,
+        price: productCard.querySelector('.price-span').textContent,
+        image: productCard.querySelector('.product-image').src,
+        quantity: 1
+      };
+      productsInstance.userProductAddedToCart(productAddedToCartObj);
+      new Notification('Product added to cart', 'success', productCard);
+    }
+  })
 };
