@@ -1,4 +1,4 @@
-import { divFormLanding } from '../layout/constants.js';
+import { divFormLanding } from '../landing/constants.js';
 import { divProductsForm } from '../products/constants.js';
 
 export class Notification {
