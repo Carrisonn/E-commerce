@@ -66,9 +66,8 @@ nav {
   color: var(--color-white);
   padding: 1rem;
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
   width: fit-content;
-  margin: 0 auto 2rem auto;
+  margin: 2rem auto 0 auto;
   font-weight: 700;
 }
 
@@ -543,8 +542,6 @@ footer {
 /** PC Screen **/
 @media screen and (min-width: 768px) {
 
-  /** Landing **/
-
   /** Layout **/
   .container {
     width: min(90%, 100rem);
@@ -613,6 +610,11 @@ footer {
   }
 
   /** Product.html **/
+  .main-container {
+    display: flex;
+    align-items: center;
+  }
+
   .single-product-card {
     padding: 2rem;
     border: 1px solid var(--color-border);
