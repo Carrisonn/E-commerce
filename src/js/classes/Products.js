@@ -71,8 +71,15 @@ export class Products {
     divProductContainer.appendChild(divProductCard);
   };
 
-  userProductAddedToCart(productAddedToCartObj) {
-    this.products = [...this.products, productAddedToCartObj];
-    localStorage.setItem('userProducts', JSON.stringify(this.products));
+  userProductAddedToCart(product) {
+    try {
+      this.products = JSON.parse(localStorage.getItem('userProducts')) || [];
+      this.products = [...this.products, product];
+      localStorage.setItem('userProducts', JSON.stringify(this.products));
+    } catch (error) {
+      console.error(error);
+      alert(`There was an error adding the product to cart:\n ${error}.`);
+      window.location.href = '/';
+    }
   };
 };
