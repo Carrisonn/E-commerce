@@ -13,7 +13,7 @@ export async function getProducts() {
     const response = await fetch(urlProducts);
     const products = await response.json();
     productsInstance.renderAllProducts(products);
-    selectCardInformation();
+    selectProductInformation();
   } catch (error) {
     console.error(error);
     alert(`There was an error loading the products:\n ${error}.`);
@@ -41,7 +41,7 @@ async function searchProducts() {
     const response = await fetch(urlProduct);
     const userProduct = await response.json();
     productsInstance.renderAllProducts(userProduct);
-    selectCardInformation();
+    selectProductInformation();
   } catch (error) {
     console.error(error);
     alert(`There was an error searching for the products:\n ${error}.`);
@@ -49,7 +49,7 @@ async function searchProducts() {
   }
 };
 
-function selectCardInformation() {
+function selectProductInformation() {
   divProductsContainer.addEventListener('click', event => {
     if (event.target.classList.contains('btn-product-add-to-cart')) {
       const productCard = event.target.parentElement.parentElement;
@@ -61,7 +61,7 @@ function selectCardInformation() {
         image: productCard.querySelector('.product-image').src,
         quantity: 1
       };
-      productsInstance.userProductAddedToCart(productAddedToCartObj);
+      productsInstance.productAddedToCart(productAddedToCartObj);
       new Notification('Product added to cart', 'success', productCard);
     }
   })
