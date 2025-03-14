@@ -20,10 +20,10 @@ export class Notification {
     this.typeMsg === 'error' ? notification.classList.add('error') : notification.classList.add('success');
     switch (this.reference) {
       case 'landingForm':
-        divFormLanding.appendChild(notification)
+        divFormLanding.appendChild(notification);
         break;
       case 'productsForm':
-        divProductsForm.appendChild(notification)
+        divProductsForm.appendChild(notification);
         break;
       default:
         this.reference.appendChild(notification);
