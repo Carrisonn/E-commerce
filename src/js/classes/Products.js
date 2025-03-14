@@ -71,9 +71,9 @@ export class Products {
     divProductContainer.appendChild(divProductCard);
   };
 
-  userProductAddedToCart(product) {
+  productAddedToCart(product) {
     try {
-      this.products = JSON.parse(localStorage.getItem('userProducts')) || [];
+      this.products = JSON.parse(localStorage.getItem('userProducts')) || []; //allows the user to navigate through the sections while keeping the products reference
       this.products = [...this.products, product];
       localStorage.setItem('userProducts', JSON.stringify(this.products));
     } catch (error) {
