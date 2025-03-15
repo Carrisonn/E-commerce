@@ -1,11 +1,11 @@
-import { Products } from "../classes/Products.js";
-import { queryParams } from "./constants.js";
+import { Products } from '../classes/Products.js';
+import { queryParams } from './constants.js';
 
 const productInstance = new Products();
 
 export function validateQueryParams() {
   queryParams.slice(0, 4) === '?id=' ? getProduct() : window.location.href = '/';
-};
+}
 
 async function getProduct() {
   const divSpinner = document.querySelector('#div-spinner');
@@ -25,4 +25,4 @@ async function getProduct() {
     alert(`Ha ocurrido un error al buscar el producto:\n ${error}.`);
     window.location.href = '/';
   }
-};
+}

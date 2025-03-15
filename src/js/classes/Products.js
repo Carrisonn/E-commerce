@@ -38,10 +38,10 @@ export class Products {
         </div >
       `;
       divProductsContainer.appendChild(divProduct);
-    })
+    });
     userProductObj.product = '';
     formProducts.reset();
-  };
+  }
 
   renderSingleProduct(product) {
     const removeSpinner = document.querySelector('#div-spinner');
@@ -69,7 +69,7 @@ export class Products {
       </div>
     `;
     divProductContainer.appendChild(divProductCard);
-  };
+  }
 
   userProductAddedToCart(product) {
     try {
@@ -81,5 +81,5 @@ export class Products {
       alert(`There was an error adding the product to cart:\n ${error}.`);
       window.location.href = '/';
     }
-  };
-};
+  }
+}

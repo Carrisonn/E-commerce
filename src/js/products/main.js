@@ -1,5 +1,5 @@
-import { getProducts, valueToProductObj, validateData } from "./functions.js";
-import { formProducts, inputSearchProducts } from "./constants.js";
+import { getProducts, valueToProductObj, validateData } from './functions.js';
+import { formProducts, inputSearchProducts } from './constants.js';
 
 window.addEventListener('load', () => formProducts.reset());
 

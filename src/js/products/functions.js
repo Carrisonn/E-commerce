@@ -1,6 +1,6 @@
-import { Products } from "../classes/Products.js";
-import { Notification } from "../classes/Notification.js";
-import { userProductObj, divProductsContainer } from "./constants.js";
+import { Products } from '../classes/Products.js';
+import { Notification } from '../classes/Notification.js';
+import { userProductObj, divProductsContainer } from './constants.js';
 
 const productsInstance = new Products();
 
@@ -19,17 +19,17 @@ export async function getProducts() {
     alert(`There was an error loading the products:\n ${error}.`);
     window.location.href = '/';
   }
-};
+}
 
 export function valueToProductObj(event) {
   userProductObj.product = event.target.value.trim();
-};
+}
 
 export function validateData(event) {
   event.preventDefault();
   const { product } = userProductObj;
   !product ? new Notification('Please, enter a product name', 'error', 'productsForm') : searchProducts();
-};
+}
 
 async function searchProducts() {
   const divSpinner = document.querySelector('#div-spinner');
@@ -47,7 +47,7 @@ async function searchProducts() {
     alert(`There was an error searching for the products:\n ${error}.`);
     window.location.href = '/';
   }
-};
+}
 
 function selectCardInformation() {
   divProductsContainer.addEventListener('click', event => {
@@ -64,5 +64,5 @@ function selectCardInformation() {
       productsInstance.userProductAddedToCart(productAddedToCartObj);
       new Notification('Product added to cart', 'success', productCard);
     }
-  })
-};
+  });
+}
