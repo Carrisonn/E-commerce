@@ -42,8 +42,14 @@ p {
   font-size: 1.8rem;
 }
 
+h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: var(--color-white);
+}
+
 nav {
-  height: 17rem;
+  height: 15rem;
   background-color: var(--color-tertiary);
   border-bottom: 1px solid var(--color-border);
 }
@@ -283,6 +289,7 @@ blockquote {
   margin: 2rem 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -477,6 +484,43 @@ blockquote {
   font-weight: 700;
 }
 
+/** Cart.html **/
+.cart-container {
+  width: 100%;
+  display: grid;
+  gap: 2rem;
+}
+
+.cart-info {
+  text-align: center;
+}
+
+.cart-info p {
+  margin-bottom: 0;
+}
+
+.div-cart-user-products {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.div-product-cart-price-delete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn-delete-product {
+  padding: 1rem;
+  color: var(--color-white);
+  border: none;
+  background-color: var(--color-error);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+}
 
 /** Footer **/
 footer {
@@ -591,6 +635,10 @@ footer {
     margin: 0 auto 3rem auto;
   }
 
+  .form {
+    flex-direction: row;
+  }
+
   /** Footer **/
   .div-footer-links-container {
     display: flex;
@@ -613,6 +661,7 @@ footer {
   .main-container {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .single-product-card {
