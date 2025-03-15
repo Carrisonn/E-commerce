@@ -17,12 +17,21 @@ async function getProduct() {
   try {
     const productUrl = `https://api.escuelajs.co/api/v1/products/${productId}`;
     const response = await fetch(productUrl);
-    if (!response.ok) return window.location.href = '/';
     const product = await response.json();
+    dynamicTitle(product);
     productInstance.renderSingleProduct(product);
   } catch (error) {
     console.error(error);
-    alert(`Ha ocurrido un error al buscar el producto:\n ${error}.`);
+    alert(`There was an error:\n ${error}.`);
     window.location.href = '/';
   }
+<<<<<<< HEAD
 }
+=======
+};
+
+export function dynamicTitle(product) {
+  const { title } = product;
+  window.document.title = `JSVanilla Shop - ${title}`;
+};
+>>>>>>> 55598bc2b87df97bffef1227071d7eb769d101f6
