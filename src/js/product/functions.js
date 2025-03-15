@@ -25,13 +25,9 @@ async function getProduct() {
     alert(`There was an error:\n ${error}.`);
     window.location.href = '/';
   }
-<<<<<<< HEAD
 }
-=======
-};
 
-export function dynamicTitle(product) {
+function dynamicTitle(product) {
   const { title } = product;
   window.document.title = `JSVanilla Shop - ${title}`;
-};
->>>>>>> 55598bc2b87df97bffef1227071d7eb769d101f6
+}
